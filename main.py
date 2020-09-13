@@ -22,7 +22,7 @@ icon = pygame.image.load('image/ufo.png')
 pygame.display.set_icon(icon)
 
 # Player
-playerImg = pygame.image.load('player.png')
+playerImg = pygame.image.load('image/player.png')
 playerX = 370
 playerY = 480
 playerX_change = 0
@@ -65,14 +65,16 @@ bullet_state = "ready"
 score_value = 0
 font = pygame.font.Font('freesansbold.ttf', 32)
 textX = 10
-testY = 10
+textY = 10
 
-#Game Over
+# Game Over
 over_font = pygame.font.Font('freesansbold.ttf', 64)
+
 
 def show_score(x, y):
     score = font.render("Score : " + str(score_value), True, (255, 255, 255))
     screen.blit(score, (x, y))
+
 
 def game_over_text():
     over_text = over_font.render("GAME OVER", True, (255, 255, 255))
@@ -188,11 +190,11 @@ while running:
         bullet_state = "ready"
 
     if bullet_state is "fire":
-        fire_bullet(playerX, bulletY)
+        fire_bullet(bulletX, bulletY)
         bulletY -= bulletY_change
 
     player(playerX, playerY)
-    show_score(textX. textY)
+    show_score(textX, textY)
     pygame.display.update()
 
 
